@@ -18,8 +18,8 @@ The project demonstrates modern Angular architecture using standalone components
 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/user-task-app.git
-cd user-task-app
+git clone https://github.com/YOUR_USERNAME/task-management-app.git
+cd task-management-app
 ```
 
 2.  Install Dependencies
@@ -44,14 +44,18 @@ The application follows a feature-based architecture:
 src/app/
 │
 ├── features/
-│   ├── users/
-│   │   └── user-list/
+│   ├── user-list/
 │   │
-│   └── tasks/
-│       ├── task-list/
-│       └── task-form/
+│   └── task-list/
 │
-├── shared/
+├── components/
+│   ├── task-form/
+│   │
+│
+├── state/
+│   ├── user-tasks/
+│   │
+│   └── users/
 └── app.routes.ts
 ```
 
