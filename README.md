@@ -13,7 +13,20 @@ TaskManagementApp is a feature-based Angular application that allows users to:
 
 The project demonstrates modern Angular architecture using standalone components and clean component communication.
 
-## Development server
+## How to Run the Application
+
+1. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/user-task-app.git
+cd user-task-app
+```
+
+2.  Install Dependencies
+
+```bash
+npm install
+```
 
 To start a local development server, run:
 
