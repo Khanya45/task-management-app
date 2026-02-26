@@ -1,0 +1,57 @@
+<div class="max-w-2xl mx-auto p-6">
+  <div class="flex items-center justify-between mb-6">
+    <button (click)="goBack()" class="text-sm text-blue-600 hover:underline">← Back</button>
+
+    <h2 class="text-xl font-semibold">User Tasks</h2>
+  </div>
+
+  <!-- User Details -->
+  @if (userDetails()) {
+    <div class="p-4 mb-6 border rounded-lg bg-white shadow-sm">
+      <h3 class="font-semibold text-lg mb-2">
+        {{ userDetails()?.name }}
+      </h3>
+
+      <p class="text-sm text-gray-500">
+        {{ userDetails()?.email }}
+      </p>
+    </div>
+  }
+
+  <!-- Tasks Card -->
+  <div class="p-4 border rounded-lg bg-gray-50 shadow-sm">
+    <div class="mb-4 flex items-center justify-between">
+      <h3 class="font-medium">Tasks</h3>
+      <button (click)="openModal()" class="text-sm text-blue-600 hover:underline">Add Task</button>
+    </div>
+
+    <div class="modal-backdrop" *ngIf="showTaskModal()">
+      <div class="modal-container">
+        <app-task-form (close)="closeModal()"></app-task-form>
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      @for (task of userTask(); track task.id) {
+        <div
+          class="p-3 bg-white rounded-lg border flex justify-between items-center hover:shadow transition"
+        >
+          <div [class.line-through]="task.completed" [class.text-gray-400]="task.completed">
+            {{ task.title }}
+          </div>
+
+          <span
+            class="text-xs px-3 py-1 rounded-full font-medium"
+            [ngClass]="
+              task.completed ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
+            "
+          >
+            {{ task.completed ? 'Completed' : 'Pending' }}
+          </span>
+        </div>
+      } @empty {
+        <div class="text-center py-8 text-gray-400">No tasks found</div>
+      }
+    </div>
+  </div>
+</div>
